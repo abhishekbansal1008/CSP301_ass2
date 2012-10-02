@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.LinkedList;
 
 import prefuse.data.Table;
@@ -7,13 +6,7 @@ import prefuse.data.io.DataIOException;
 
 public class Spreader {
 
-	/**
-	 * Function for calculating the average of a linked list
-	 * 
-	 * @author Abhishek Bansal
-	 * @param l - list of values
-	 * @return - average of the values in the list
-	 */
+	
 	@SuppressWarnings("rawtypes")
 	public static float average(LinkedList l) {
 		double sum = 0;
@@ -30,13 +23,15 @@ public class Spreader {
 		return ((f / len));
 
 	}
-	/**Method used to create spreadsheets for data visualizations
+
+	/**
+	 * Method used to create spreadsheets for data visualizations
 	 * 
-	 * @param args
+	 * @author Abhishek bansal
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
+
 		LinkedList<Object> l1 = new LinkedList<Object>();
 		LinkedList<Object> l = new LinkedList<Object>();
 		// LinkedList<Object> l_age;
@@ -44,6 +39,8 @@ public class Spreader {
 		LinkedList<Object> l_bills;
 		LinkedList<Object> l_ques;
 		LinkedList<Object> l_atten;
+
+		// reads file
 		Table t1 = new Table();
 		CSVTableReader t = new CSVTableReader();
 		try {
@@ -54,42 +51,29 @@ public class Spreader {
 		}
 
 		int a = 494;
-		
+
+		// Selects distinct parties
 		Object s, s1, s2, s3, s4;
 		for (int i = 0; i < a; i++) {
 			s = t1.get(i, 6);
 			if (!l1.contains(s)) {
-				// System.out.println(s);
 				l1.add(s);
 			}
 
 		}
 
-		// for (int i = 0; i < l1.size(); i++) {
-		// Object abc = l1.get(i);
+		// counts number of occurrences in a range
 		int count = 0;
 		for (int j = 0; j < a; j++) {
-			int x = (int) t1.get(j, 12);
-			if (x > 400  && x <= 40000) {
+			int x = (int) t1.get(j, 14);
+			if (x > 250 && x <= 400) {
 				count++;
 			}
-			// }
 
-			// l.add(abc);
 		}
 		System.out.println(count);
-		// System.out.println(l);
-		// for (int i = 0; i < l.size(); i++) {
-		// Object abc = l.get(i);
-		// int count = 0;
-		// for (int j = 0; j < a; j++) {
-		// if (t1.get(j, 6).equals(abc)) {
-		// count++;
-		// }
-		// }
-		// System.out.println(count);
-		// }
 
+		// code for generating average value of a column
 		for (int i = 0; i < l.size(); i++) {
 			Object abc = l.get(i);
 

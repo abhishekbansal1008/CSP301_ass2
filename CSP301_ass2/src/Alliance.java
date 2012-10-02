@@ -7,13 +7,7 @@ import prefuse.data.io.DataIOException;
 
 public class Alliance {
 
-	/**
-	 * Function for calculating the average of a linked list
-	 * 
-	 * @author Abhishek Bansal
-	 * @param l - list of values
-	 * @return - average of the values in the list
-	 */
+	
 	@SuppressWarnings("rawtypes")
 	public static float average(LinkedList l) {
 		double sum = 0;

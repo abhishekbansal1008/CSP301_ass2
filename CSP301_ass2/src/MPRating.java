@@ -7,9 +7,18 @@ public class MPRating {
 	/**
 	 * Calculates MP rating of each member of parliament on the basis of the
 	 * education, attendance, debates participated, questions raised and bills
-	 * passed.
+	 * passed. Generates total rating by generating weighted mean of each
+	 * individual rating
+	 * <p>
+	 * Weights<br> education - 0.8 <br>debate - 1.2 <br>bills passed -1.4<br> attendance - 1.5
+	 * <br>questions raised - 1.1
+	 * <p>
+	 * Each weight decided by their relevance in the activity of the MP. So an
+	 * MP who is not highly educated but has a high attendance and more debates
+	 * is rated more than the MP who is highly educated but neglects his
+	 * parliamentary duties and skips the assembly meetings
 	 * 
-	 * @param args
+	 * @author Abhishek Bansal
 	 */
 	public static void main(String[] args) {
 
@@ -25,8 +34,10 @@ public class MPRating {
 		double atten;
 		int a = 494;
 		int debate, bill, ques, edu;
-		double debr, billr, quesr, attenr, edur; // variables for individual
-													// ratings
+		
+		// variables for individual ratings
+		double debr, billr, quesr, attenr, edur; 
+		
 		for (int i = 0; i < a; i++) {
 			debate = (int) t1.get(i, 12);
 			bill = (int) t1.get(i, 13);

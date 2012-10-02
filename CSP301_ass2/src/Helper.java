@@ -5,6 +5,16 @@ import prefuse.data.io.DataIOException;
 
 public class Helper {
 
+	/**
+	 * Function for calculating the average of a linked list
+	 * 
+	 * 
+	 * @author Abhishek Bansal
+	 * @param l
+	 *            - list of integer values
+	 * @return - rounded off average of the values in the list
+	 */
+	@SuppressWarnings("rawtypes")
 	public static int average(LinkedList l) {
 		double sum = 0;
 		float len = l.size();
@@ -21,6 +31,16 @@ public class Helper {
 
 	}
 
+	/**
+	 * Function for calculating the average of a linked list
+	 * 
+	 * 
+	 * @author Abhishek Bansal
+	 * @param l
+	 *            - list of float values
+	 * @return - average of the values in the list
+	 */
+	@SuppressWarnings("rawtypes")
 	public static float average2(LinkedList l) {
 		double sum = 0;
 		float len = l.size();
@@ -37,6 +57,16 @@ public class Helper {
 
 	}
 
+	/**
+	 * Function for calculating the average attendance of a linked list
+	 * 
+	 * 
+	 * @author Abhishek Bansal
+	 * @param l
+	 *            - list of float values
+	 * @return - average of the values in the list
+	 */
+	@SuppressWarnings("rawtypes")
 	public static int average3(LinkedList l) {
 		double sum = 0;
 		float len = l.size();
@@ -53,6 +83,7 @@ public class Helper {
 
 	}
 
+	// helps in generating data and testing blocks of code for other java files
 	public static void main(String[] args) throws DataIOException {
 
 		int a = 494;
@@ -69,7 +100,7 @@ public class Helper {
 		for (int i = 0; i < a; i++) {
 			s = t1.get(i, 6);
 			if (!l.contains(s)) {
-	//			System.out.println(s);
+				// System.out.println(s);
 				l.add(s);
 			}
 		}
@@ -80,16 +111,13 @@ public class Helper {
 			l_bills = new LinkedList<Object>();
 			l_ques = new LinkedList<Object>();
 			l_atten = new LinkedList<Object>();
-			int count = 0;
 			for (int j = 0; j < a; j++) {
-				s = t1.get(j, 10);
-				s1 = t1.get(j, 11);
-				s2 = t1.get(j, 12);
-				s3 = t1.get(j, 13);
-				s4 = t1.get(j, 14);
+				s = t1.get(j, 11);
+				s1 = t1.get(j, 12);
+				s2 = t1.get(j, 13);
+				s3 = t1.get(j, 14);
+				s4 = t1.get(j, 15);
 				if (t1.get(j, 6).equals(abc)) {
-					// System.out.println(abc);
-					count++;
 					l_age.add(s);
 					l_debate.add(s1);
 					l_bills.add(s2);
@@ -100,7 +128,7 @@ public class Helper {
 			}
 			System.out.print("['" + l.get(i) + "'," + average3(l_atten) + "],");
 
-			//System.out.println("['" + abc + "'," + count + "],");
+			// System.out.println("['" + abc + "'," + count + "],");
 
 			// System.out.println("female - " + average(lf));
 
