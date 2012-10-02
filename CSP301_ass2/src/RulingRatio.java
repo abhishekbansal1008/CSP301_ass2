@@ -6,11 +6,22 @@ import prefuse.data.io.DataIOException;
 
 public class RulingRatio {
 
+	/**
+	 * Displays the fraction of seats held by the majority party in the state 
+	 * 
+	 * @author Abhishek Bansal
+	 *
+	 * @param l Linked List containing the parties of all the candidates
+	 */
+	
 	public static void rulingratio(LinkedList<?> l) {
 		int j = l.size();
 		double count = 0.0;
 		Object s = new Object();
 		LinkedList<Object> mem = new LinkedList<>();
+		
+		// Generates all the different parties present in the state
+		
 		for (int i = 0; i < j; i++) {
 			s = l.get(i);
 			if (!mem.contains(s)) {
@@ -18,6 +29,8 @@ public class RulingRatio {
 				mem.add(s);
 			}
 		}
+		
+		// Calculates their frequency and stores 
 		for (int a = 0; a < mem.size(); a++) {
 			s = mem.get(a);
 			double count2 = 0;
