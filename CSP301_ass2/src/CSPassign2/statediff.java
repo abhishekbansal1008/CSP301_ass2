@@ -52,7 +52,7 @@ public class statediff {
 		for (int i = 0; i < a; i++) {
 			s = t1.get(i, 4);
 			if (!l.contains(s)) {
-				// System.out.println(s);
+				System.out.println(s);
 				l.add(s);
 			}
 		}
@@ -63,11 +63,11 @@ public class statediff {
 			for (int j = 0; j < a; j++) {
 				s = t1.get(j, 11);
 				if (t1.get(j, 4).equals("Uttar Pradesh")) {
-					System.out.println(t1.get(j, 0));
+					//System.out.println(t1.get(j, 0));
 					count++;
 				}
 			}
-			System.out.println(abc +" "+ count);
+		//	System.out.println(abc +" "+ count);
 			if (count > 20) {
 				l_major.add(abc);
 			//	System.out.println(abc);
