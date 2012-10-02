@@ -12,7 +12,7 @@ public class helper {
 	 * @throws DataIOException
 	 */
 	public static void main(String[] args) throws DataIOException {
-		int a = 551;
+		int a = 552;
 		Table t1 = new Table();
 		CSVTableReader t = new CSVTableReader();
 		t1 = t.readTable("MPTrack-15.csv");

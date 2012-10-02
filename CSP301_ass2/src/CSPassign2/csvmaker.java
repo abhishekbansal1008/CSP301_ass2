@@ -56,7 +56,7 @@ public class csvmaker {
 
 	public static void main(String[] args) throws DataIOException {
 
-		int a = 493;
+		int a = 494;
 		LinkedList<Object> lnew = new LinkedList<Object>();
 		LinkedList<Object> l = new LinkedList<Object>();
 		LinkedList<Object> l_age;

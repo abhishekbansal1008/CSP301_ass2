@@ -30,7 +30,7 @@ public class statediff {
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int a = 493;
+		int a = 552;
 		int sum = 0;
 		int count2 = 0;
 		LinkedList<Object> l_major = new LinkedList<Object>();
@@ -43,7 +43,7 @@ public class statediff {
 		Table t1 = new Table();
 		CSVTableReader t = new CSVTableReader();
 		try {
-			t1 = t.readTable("newfile.csv");
+			t1 = t.readTable("MPTrack-15.csv");
 		} catch (DataIOException e) {
 			// TODO Auto-generated catch block
 			System.out.println("File not Found!!");
@@ -62,8 +62,8 @@ public class statediff {
 			int count = 0;
 			for (int j = 0; j < a; j++) {
 				s = t1.get(j, 11);
-				if (t1.get(j, 4).equals(abc)) {
-					// System.out.println(abc);
+				if (t1.get(j, 4).equals("Uttar Pradesh")) {
+					System.out.println(t1.get(j, 0));
 					count++;
 				}
 			}

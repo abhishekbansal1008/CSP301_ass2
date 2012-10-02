@@ -32,14 +32,14 @@ public class alliances {
 		Table t1 = new Table();
 		CSVTableReader t = new CSVTableReader();
 		try {
-			t1 = t.readTable("MPTrack-15.csv");
+			t1 = t.readTable("Rajya.csv");
 		} catch (DataIOException e) {
 			// TODO Auto-generated catch block
 			System.out.println("File not found!!!");
 			System.exit(0);
 		}
 
-		int a = 551;
+		int a = 352;
 		LinkedList<String> l = new LinkedList<String>();
 		LinkedList<Object> l_age;
 		LinkedList<String> upa = new LinkedList<String>();
@@ -70,6 +70,9 @@ public class alliances {
 
 		nda.add("Bharatiya Janata Party");
 		nda.add("Shiv Sena");
+		nda.add("Swtantra Bharat Paksh");
+		nda.add("Indian National Lok Dal");
+		nda.add("Mizo National Front");
 		nda.add("Janata Dal (United)");
 		nda.add("Shiromani Akali Dal");
 		nda.add("Asom Gana Parishad");
@@ -77,6 +80,7 @@ public class alliances {
 
 		others.add("Jharkhand Vikas Morcha (Prajatantrik)");
 		others.add("Independent");
+		others.add("Lok Janasakti Party");
 		others.add("Yuvajana Sramika Rythu Congress Party");
 
 		third.add("Communist Party of India (Marxist)");
@@ -84,6 +88,7 @@ public class alliances {
 		third.add("Revolutionary Socialist Party");
 		third.add("All India Forward Bloc");
 		third.add("Biju Janata Dal");
+		third.add("Pattali Makkal Katchi");
 		third.add("Telugu Desam Party");
 		third.add("All India Anna Dravida Munnetra Kazhagam");
 		third.add("Haryana Janhit Congress");
@@ -93,20 +98,31 @@ public class alliances {
 		int count2 = 0;
 		int count3 = 0;
 		int count4 = 0;
-		/*
-		 * for (int i = 0; i < 551; i++) { Object abc = t1.get(i, 6);
-		 * if(upa.contains(abc)) { count1++; } else if (nda.contains(abc)) {
-		 * count2++; } else if (third.contains(abc)) { count3++; } else if
-		 * (others.contains(abc)) { count4++; } else { System.out.println(abc);
-		 * }
-		 * 
-		 * }
-		 */
+
+		for (int i = 0; i < a; i++) {
+			Object abc = t1.get(i, 5);
+			if (upa.contains(abc)) {
+				count1++;
+
+			} else if (nda.contains(abc)) {
+				count2++;
+
+			} else if (third.contains(abc)) {
+				count3++;
+
+			} else if (others.contains(abc)) {
+				count4++;
+			} else {
+				// System.out.println(abc);
+			}
+
+		}
+
 		Object s, s1 = new Object();
 		for (int i = 0; i < a; i++) {
-			s = t1.get(i, 6);
+			s = t1.get(i, 5);
 			if (!l.contains(s)) {
-				//System.out.println(s);
+				// System.out.println(s);
 				l.add((String) s);
 			}
 		}
@@ -124,20 +140,19 @@ public class alliances {
 			}
 			Object alliance = new Object();
 			if (upa.contains(abc)) {
-				alliance = "UPA";
+				System.out.println("UPA");
 			} else if (nda.contains(abc)) {
-				alliance = "NDA";
+				System.out.println("NDA");
 			} else if (third.contains(abc)) {
-				alliance = "Third Front";
+				System.out.println("Third Front");			
 			} else
-				alliance = "Others";
+				System.out.println("Others");
 
-			System.out.print(" [' " + abc + " ',' " + alliance + " ', "
-					+ count + " ,"+ average(l_age) +"], ");
+			// System.out.println(alliance);
 		}
-//		System.out.print("['UPA'," + count1 + "],");
-//		System.out.print("['NDA'," + count2 + "],");
-//		System.out.print("['Third Front'," + count3 + "],");
-//		System.out.print("['Others'," + count4 + "],");
+		System.out.print("['UPA'," + count1 + "],");
+		System.out.print("['NDA'," + count2 + "],");
+		System.out.print("['Third Front'," + count3 + "],");
+		System.out.print("['Others'," + count4 + "],");
 	}
 }

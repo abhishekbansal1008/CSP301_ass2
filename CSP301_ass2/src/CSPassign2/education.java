@@ -30,7 +30,7 @@ public class education {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int a = 493;
+		int a = 494;
 		LinkedList<Object> l = new LinkedList<Object>();
 		LinkedList<Object> l_eq = new LinkedList<Object>();
 		LinkedList<Object> l_val;
