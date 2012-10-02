@@ -1,12 +1,10 @@
-package CSPassign2;
-
 import java.util.LinkedList;
 
 import prefuse.data.Table;
 import prefuse.data.io.CSVTableReader;
 import prefuse.data.io.DataIOException;
 
-public class statediff {
+public class Statewise {
 
 	/**
 	 * @param args

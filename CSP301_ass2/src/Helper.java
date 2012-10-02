@@ -1,10 +1,9 @@
-package CSPassign2;
 import java.util.LinkedList;
 import prefuse.data.Table;
 import prefuse.data.io.CSVTableReader;
 import prefuse.data.io.DataIOException;
 
-public class filemaker {
+public class Helper {
 
 	public static int average(LinkedList l) {
 		double sum = 0;
@@ -57,14 +56,12 @@ public class filemaker {
 	public static void main(String[] args) throws DataIOException {
 
 		int a = 494;
-		LinkedList<Object> lnew = new LinkedList<Object>();
 		LinkedList<Object> l = new LinkedList<Object>();
 		LinkedList<Object> l_age;
 		LinkedList<Object> l_debate;
 		LinkedList<Object> l_bills;
 		LinkedList<Object> l_ques;
 		LinkedList<Object> l_atten;
-		// Object status = "Uttar Pradesh";
 		Table t1 = new Table();
 		CSVTableReader t = new CSVTableReader();
 		t1 = t.readTable("newfile.csv");
@@ -72,7 +69,7 @@ public class filemaker {
 		for (int i = 0; i < a; i++) {
 			s = t1.get(i, 6);
 			if (!l.contains(s)) {
-				System.out.println(s);
+	//			System.out.println(s);
 				l.add(s);
 			}
 		}
@@ -101,7 +98,7 @@ public class filemaker {
 
 				}
 			}
-			// System.out.print("['" + l.get(i) + "'," + average3(l_atten) + "],");
+			System.out.print("['" + l.get(i) + "'," + average3(l_atten) + "],");
 
 			//System.out.println("['" + abc + "'," + count + "],");
 

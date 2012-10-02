@@ -1,5 +1,3 @@
-package CSPassign2;
-
 import java.util.Arrays;
 import java.util.LinkedList;
 
@@ -7,7 +5,7 @@ import prefuse.data.Table;
 import prefuse.data.io.CSVTableReader;
 import prefuse.data.io.DataIOException;
 
-public class spreader {
+public class Spreader {
 
 	/**
 	 * @param args

@@ -1,12 +1,10 @@
-package CSPassign2;
-
 import java.util.LinkedList;
 
 import prefuse.data.Table;
 import prefuse.data.io.CSVTableReader;
 import prefuse.data.io.DataIOException;
 
-public class education {
+public class EQcalculator {
 
 	/**
 	 * @param args
