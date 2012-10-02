@@ -8,8 +8,13 @@ import prefuse.data.io.DataIOException;
 public class Alliance {
 
 	/**
-	 * @param args
+	 * Function for calculating the average of a linked list
+	 * 
+	 * @author Abhishek Bansal
+	 * @param l - list of values
+	 * @return - average of the values in the list
 	 */
+	@SuppressWarnings("rawtypes")
 	public static float average(LinkedList l) {
 		double sum = 0;
 		float len = l.size();
@@ -26,25 +31,35 @@ public class Alliance {
 
 	}
 
+	/**
+	 * Main function
+	 * Calculates alliance specific data
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		// reads file
 		Table t1 = new Table();
 		CSVTableReader t = new CSVTableReader();
 		try {
-			t1 = t.readTable("Rajya.csv");
+			t1 = t.readTable("MPTrack-15.csv");
 		} catch (DataIOException e) {
 			// TODO Auto-generated catch block
 			System.out.println("File not found!!!");
 			System.exit(0);
 		}
 
-		int a = 352;
+		int a = 552;
 		LinkedList<String> l = new LinkedList<String>();
 		LinkedList<Object> l_age;
 		LinkedList<String> upa = new LinkedList<String>();
 		LinkedList<String> others = new LinkedList<String>();
 		LinkedList<String> nda = new LinkedList<String>();
 		LinkedList<String> third = new LinkedList<String>();
+		
+		// All the members of United Progressive Alliance(UPA)
+		
 		upa.add("Indian National Congress");
 		upa.add("All India Trinamool Congress");
 		upa.add("Dravida Munnetra Kazhagam");
@@ -67,6 +82,8 @@ public class Alliance {
 		upa.add("Assam United Democratic Front");
 		upa.add("Sikkim Democratic Front");
 
+		// All the members of National Democratic Alliance(NDA)
+		
 		nda.add("Bharatiya Janata Party");
 		nda.add("Shiv Sena");
 		nda.add("Swtantra Bharat Paksh");
@@ -77,10 +94,7 @@ public class Alliance {
 		nda.add("Asom Gana Parishad");
 		nda.add("Telangana Rashtra Samithi");
 
-		others.add("Jharkhand Vikas Morcha (Prajatantrik)");
-		others.add("Independent");
-		others.add("Lok Janasakti Party");
-		others.add("Yuvajana Sramika Rythu Congress Party");
+		// All the members of United National Progressive Alliance(UNPA)		
 
 		third.add("Communist Party of India (Marxist)");
 		third.add("Communist Party of India");
@@ -92,14 +106,23 @@ public class Alliance {
 		third.add("All India Anna Dravida Munnetra Kazhagam");
 		third.add("Haryana Janhit Congress");
 		third.add("Marumalarchi Dravida Munnetra Kazhagam");
+		
+		// Other political parties
+		
+		others.add("Jharkhand Vikas Morcha (Prajatantrik)");
+		others.add("Independent");
+		others.add("Lok Janasakti Party");
+		others.add("Yuvajana Sramika Rythu Congress Party");
+
 
 		int count1 = 0;
 		int count2 = 0;
 		int count3 = 0;
 		int count4 = 0;
 
+		// counts members of all the alliances
 		for (int i = 0; i < a; i++) {
-			Object abc = t1.get(i, 5);
+			Object abc = t1.get(i, 6);
 			if (upa.contains(abc)) {
 				count1++;
 
@@ -117,37 +140,36 @@ public class Alliance {
 
 		}
 
+		
+		// Selects all the parties and defines their alliance
 		Object s, s1 = new Object();
 		for (int i = 0; i < a; i++) {
-			s = t1.get(i, 5);
+			s = t1.get(i, 6);
 			if (!l.contains(s)) {
-				// System.out.println(s);
 				l.add((String) s);
 			}
 		}
 
 		for (int i = 0; i < l.size(); i++) {
 			Object abc = l.get(i);
-			int count = 0;
 			l_age = new LinkedList<Object>();
 			for (int j = 0; j < a; j++) {
 				s1 = t1.get(j, 11);
 				if (t1.get(j, 6).equals(abc)) {
-					count++;
 					l_age.add(s1);
 				}
 			}
 			Object alliance = new Object();
 			if (upa.contains(abc)) {
-				System.out.println("UPA");
+				alliance = "UPA";
 			} else if (nda.contains(abc)) {
-				System.out.println("NDA");
+				alliance = "NDA";
 			} else if (third.contains(abc)) {
-				System.out.println("Third Front");			
+				alliance = "Third Front";	
 			} else
-				System.out.println("Others");
+				alliance = "Others";
 
-			// System.out.println(alliance);
+			System.out.println(abc + " is in " + alliance);
 		}
 		System.out.print("['UPA'," + count1 + "],");
 		System.out.print("['NDA'," + count2 + "],");

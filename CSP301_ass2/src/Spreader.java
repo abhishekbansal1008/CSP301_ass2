@@ -8,9 +8,13 @@ import prefuse.data.io.DataIOException;
 public class Spreader {
 
 	/**
-	 * @param args
+	 * Function for calculating the average of a linked list
+	 * 
+	 * @author Abhishek Bansal
+	 * @param l - list of values
+	 * @return - average of the values in the list
 	 */
-
+	@SuppressWarnings("rawtypes")
 	public static float average(LinkedList l) {
 		double sum = 0;
 		float len = l.size();
@@ -26,7 +30,10 @@ public class Spreader {
 		return ((f / len));
 
 	}
-
+	/**Method used to create spreadsheets for data visualizations
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
@@ -40,13 +47,13 @@ public class Spreader {
 		Table t1 = new Table();
 		CSVTableReader t = new CSVTableReader();
 		try {
-			t1 = t.readTable("Rajya.csv");
+			t1 = t.readTable("newfile.csv");
 		} catch (DataIOException e) {
 			// TODO Auto-generated catch block
 			System.out.println("File not Found!!");
 		}
 
-		int a = 338;
+		int a = 494;
 		
 		Object s, s1, s2, s3, s4;
 		for (int i = 0; i < a; i++) {

@@ -10,8 +10,8 @@ public class RulingRatio {
 	 * Displays the fraction of seats held by the majority party in the state 
 	 * 
 	 * @author Abhishek Bansal
-	 *
-	 * @param l Linked List containing the parties of all the candidates
+	 * @param l - Linked List containing the parties of all the candidates
+	 * @return - void, but displays the ratio calculated
 	 */
 	
 	public static void rulingratio(LinkedList<?> l) {
@@ -30,7 +30,7 @@ public class RulingRatio {
 			}
 		}
 		
-		// Calculates their frequency and stores 
+		// Calculates their frequency and stores the maximum in count2
 		for (int a = 0; a < mem.size(); a++) {
 			s = mem.get(a);
 			double count2 = 0;
@@ -43,14 +43,25 @@ public class RulingRatio {
 				count = count2;
 			}
 		}
+		
+		// displays ruling ratio
+		
 		double ratio = count / j;
 		System.out.println((Math.round(ratio * 100)) / 100.0);
 
 	}
 
+	/**
+	 * main function
+	 * 
+	 * @author Abhishek Bansal
+	 * @param args
+	 */
+	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		int a = 552;
+		
+		// reads file and creates a table through CSVTableReader
+		
 		LinkedList<Object> l = new LinkedList<Object>();
 		LinkedList<Object> l_partyofstate;
 		Table t1 = new Table();
@@ -58,16 +69,21 @@ public class RulingRatio {
 		try {
 			t1 = t.readTable("MPTrack-15.csv");
 		} catch (DataIOException e) {
-			// TODO Auto-generated catch block
 			System.out.println("File not Found!!");
 		}
+		
+		int a = 552;
 		Object s;
+		
+		// Finds all the distinct states 
 		for (int i = 0; i < a; i++) {
 			s = t1.get(i, 4);
 			if (!l.contains(s)) {
 				l.add(s);
 			}
 		}
+		
+		// Finds all the parties of the MP of each state
 		for (int i = 0; i < l.size(); i++) {
 			Object abc = l.get(i);
 			l_partyofstate = new LinkedList<Object>();

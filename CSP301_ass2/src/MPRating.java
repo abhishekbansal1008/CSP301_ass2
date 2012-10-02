@@ -1,6 +1,3 @@
-
-import java.util.LinkedList;
-
 import prefuse.data.Table;
 import prefuse.data.io.CSVTableReader;
 import prefuse.data.io.DataIOException;
@@ -8,11 +5,15 @@ import prefuse.data.io.DataIOException;
 public class MPRating {
 
 	/**
+	 * Calculates MP rating of each member of parliament on the basis of the
+	 * education, attendance, debates participated, questions raised and bills
+	 * passed.
+	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		int a = 494;
-		double count =0;
+
+		// reads file through csv table reader
 		Table t1 = new Table();
 		CSVTableReader t = new CSVTableReader();
 		try {
@@ -22,17 +23,18 @@ public class MPRating {
 			System.out.println("File Not Found!!!");
 		}
 		double atten;
-		String name;
+		int a = 494;
 		int debate, bill, ques, edu;
-		double debr, billr, quesr, attenr, edur;
+		double debr, billr, quesr, attenr, edur; // variables for individual
+													// ratings
 		for (int i = 0; i < a; i++) {
-			name = (String) t1.get(i, 6);
 			debate = (int) t1.get(i, 12);
 			bill = (int) t1.get(i, 13);
 			ques = (int) t1.get(i, 14);
 			atten = (double) t1.get(i, 15);
 			edu = (int) t1.get(i, 25);
-			// debate
+			// calculating debate rating
+			// rating decided by giving ranges based on data distribution
 			{
 				if (debate < 10)
 					debr = 0;
@@ -47,7 +49,8 @@ public class MPRating {
 				else
 					debr = 5;
 			}
-			// questions
+			// calculating questions rating
+			// decided through ranges
 			{
 				if (ques < 25)
 					quesr = 0;
@@ -62,7 +65,8 @@ public class MPRating {
 				else
 					quesr = 5;
 			}
-			// bills
+			// calculating bills rating
+			// decided through ranges
 			{
 				if (bill < 1)
 					billr = 2;
@@ -73,7 +77,9 @@ public class MPRating {
 				else
 					billr = 5;
 			}
-			// education
+			// calculating education ratings
+			// decided by education level of each MP
+
 			{
 				if (edu < 15)
 					edur = 0;
@@ -88,6 +94,8 @@ public class MPRating {
 				else
 					edur = 5;
 			}
+			// calculating attendance rating
+			// decided by the difference between MP attendance and average
 			// attendance
 			{
 				attenr = (int) (3 + (10 * (atten - 0.77)));
@@ -95,12 +103,24 @@ public class MPRating {
 					attenr = 0;
 				}
 			}
-			double sum = (0.8 * edur) + (1.2 * debr) + (1.4 * billr) + (1.1 * quesr) + (1.5 * attenr);
+
+			// Generates total rating by generating weighted mean of each
+			// individual rating
+			// Weights - education - 0.8
+			// debate - 1.2
+			// bills passed - 1.4
+			// attendance - 1.5
+			// questions raised - 1.1
+			// Each weight decided by their relevance in the activity of the MP.
+			// So an MP who is not highly educated but has a high attendance and
+			// more debates is rated more than the MP who is highly educated but
+			// neglects his parliamentary duties and skips the assembly meetings
+
+			double sum = (0.8 * edur) + (1.2 * debr) + (1.4 * billr)
+					+ (1.1 * quesr) + (1.5 * attenr);
 			double rate = sum / 6.0;
-			count+=rate;
-			System.out.println((Math.round(rate*100))/100.0);
+			System.out.println((Math.round(rate * 100)) / 100.0);
 		}
-		//System.out.println("tot : "+ count/495);
 	}
 
 }
