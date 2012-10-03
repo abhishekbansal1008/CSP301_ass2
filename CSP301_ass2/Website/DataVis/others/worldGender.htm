@@ -1,0 +1,38 @@
+<html>
+<head>
+	<script type='text/javascript' src='https://www.google.com/jsapi'></script>
+	<script type='text/javascript'>
+	google.load('visualization', '1', {'packages': ['geomap']});
+	google.load('visualization', '1', {packages:['table']});
+	google.setOnLoadCallback(drawMap);
+    function drawMap() {
+      var	query = new google.visualization.Query(
+      	'https://docs.google.com/spreadsheet/tq?range=1%3A252&key=0AmaVcAF6zqoedGJEZjc3S0owcjNsazB1RWhQYnVPdmc&gid=0&headers=-1');
+		query.setQuery('SELECT A,C ');
+		// Send the query with a callback function.
+		query.send(handleQueryResponse);
+	}
+	function handleQueryResponse(response) {
+		if (response.isError()) {
+  			alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+   			return;
+		}
+		var data = response.getDataTable();
+		var options = {};
+		options['width'] = '850px';
+		options['height'] = '500px';
+		//options['colors'] = [0xFF8747, 0xFFB581, 0xc06000]; //orange colors
+		options['dataMode'] = 'regions';
+		
+		var container = document.getElementById('map_canvas');
+		var geomap = new google.visualization.GeoMap(container);
+		geomap.draw(data, options);
+    };
+	</script>
+</head>
+
+<body>
+	<div id='map_canvas'></div>
+</body>
+
+</html>

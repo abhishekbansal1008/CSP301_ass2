@@ -1,0 +1,80 @@
+<html>
+<head>
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+		google.load('visualization', '1', {packages:['table']});
+		google.load('visualization', '1.0', {'packages':['corechart']});
+	  
+		google.setOnLoadCallback(drawVisualization);
+		function drawVisualization() {
+			// Prepare the data
+			var    query = new google.visualization.Query(
+            'https://docs.google.com/spreadsheet/tq?range=1%3A100&key=0AmaVcAF6zqoedEIwVURhb3B1WVpldHJvVnJiN1I1eXc&gid=0&headers=-1');
+			query.setQuery('SELECT A,B ');
+			// Send the query with a callback function.
+			query.send(handleQueryResponse);
+		}
+        function handleQueryResponse(response) {
+            if (response.isError()) {
+                alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+                return;
+			}
+            var data = response.getDataTable();
+			data.sort({column: 1, desc: true}); 
+			data.addRow(['Others',129]);
+			var chart = new google.visualization.PieChart(document.getElementById('chart_div_2'));
+			chart.draw(data, {title: '15th Lok Sabha', is3D: true});
+		}
+		
+		google.setOnLoadCallback(drawVisualization2);
+		function drawVisualization2() {
+			// Prepare the data
+			var    query = new google.visualization.Query(
+            'https://docs.google.com/spreadsheet/tq?range=1%3A93&key=0AmaVcAF6zqoedG55OGFkUXlkWTMxNm1zSjhyRExkQmc&gid=0&headers=-1');
+			query.setQuery('SELECT A,B WHERE B > 11');
+			// Send the query with a callback function.
+			query.send(handleQueryResponse2);
+		}
+        function handleQueryResponse2(response) {
+            if (response.isError()) {
+                alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+                return;
+			}
+            var data = response.getDataTable();
+			data.sort({column: 1, desc: true}); 
+			data.addRow(['Others',108]);
+			var chart = new google.visualization.PieChart(document.getElementById('chart_div_1'));
+			chart.draw(data, {title: '14th Lok Sabha', is3D: true});
+		}
+		
+		google.setOnLoadCallback(drawVisualization3);
+		function drawVisualization3() {
+			// Prepare the data
+			var    query = new google.visualization.Query(
+            'https://docs.google.com/spreadsheet/tq?range=1%3A100&key=0AmaVcAF6zqoedFUzY2FzdnBjeTlIaTZWUUlwcDh0TUE&gid=0&headers=-1');
+			query.setQuery('SELECT A,B WHERE B > 9');
+			// Send the query with a callback function.
+			query.send(handleQueryResponse3);
+		}
+        function handleQueryResponse3(response) {
+            if (response.isError()) {
+                alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+                return;
+			}
+            var data = response.getDataTable();
+			data.sort({column: 1, desc: true}); 
+			data.addRow(['Others',83]);
+			var chart = new google.visualization.PieChart(document.getElementById('chart_div_3'));
+			chart.draw(data, {title: 'Rajya Sabha', is3D: true});
+		}
+	</script>
+</head>
+
+<body>
+	<h1 align="center">Composition of Different Houses</h1>
+    <div id="chart_div_1"></div>
+	<div id="chart_div_2"></div>
+	<div id="chart_div_3"></div>
+	<div id="chart_div_4"></div>
+</body>
+</html>

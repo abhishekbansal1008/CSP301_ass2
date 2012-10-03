@@ -1,0 +1,119 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../style.css" />
+<title>15th Indian Lok Sabha</title>
+
+	<script>
+	sfHover = function() {
+	   var sfEls = document.getElementById("navbar").getElementsByTagName("li");
+	   for (var i=0; i<sfEls.length; i++) {
+		  sfEls[i].onmouseover=function() {
+			 this.className+=" hover";
+		  }
+		  sfEls[i].onmouseout=function() {
+			 this.className=this.className.replace(new RegExp(" hover\\b"), "");
+		  }
+	   }
+	}
+	if (window.attachEvent) window.attachEvent("onload", sfHover);
+	</script>
+</head>
+
+<body>
+	<div id="container">
+		<div id="mainpic">
+        	<h1>Fifteenth<span class="off">Indian Lok Sabha</span></h1>
+            <h2>Detailed analysis of Interesting data</h2>
+        </div>   
+        
+        <div id="menu">
+        	<ul>
+            	<li class="menuitem"><a href="nationWise.htm">NationWide Data</a></li>
+                <li class="menuitem"><a href="stateWise.htm">StateWise Data</a></li>
+                <li class="menuitem"><a href="partyWise.htm">PartyWise Data</a></li>
+				<li class="menuitem"><a href="mashUps.htm">MashUps</a></li>
+				<li class="menuitem"><a href="others.htm">Others</a></li>
+				<li2><li class="menuitem"><a href="../index.htm">Home</a></li></li2>
+            </ul>
+        </div>
+        
+		<div id="content">
+
+			<p>&nbsp;</p>
+			<h1 style="color : #336600">StateWise Data</h1>
+        	<hr size="10" color = "#336600">
+			<p>&nbsp;</p>
+			<p>&nbsp;</p>
+			
+			<div id="wrap">
+				<ul id="navbar">
+					<li><a href="#">Age of MP's</a>
+						<ul>
+							<li><a href="StateWise/age/table.htm" target="frame">Data Table</a></li>
+							<li><a href="StateWise/age/chart.htm" target="frame">Column Chart</a></li>
+							<li><a href="StateWise/age/map.htm" target="frame">India Map</a></li>
+						</ul>
+					</li>
+					<li><a href="#">Education</a>
+						<ul>
+							<li><a href="StateWise/edu/table.htm" target="frame">Data Table</a></li>
+							<li><a href="StateWise/edu/chart.htm" target="frame">Column Chart</a></li>
+							<li><a href="StateWise/edu/map.htm" target="frame">India Map</a></li>
+						</ul>
+					</li>
+					<li><a href="#">Attendance</a>
+						<ul>
+							<li><a href="StateWise/attendance/table.htm" target="frame">Data Table</a></li>
+							<li><a href="StateWise/attendance/chart.htm" target="frame">Column Chart</a></li>
+							<li><a href="StateWise/attendance/map.htm" target="frame">India Map</a></li>
+						</ul>
+					</li>
+					<li><a href="#">Gender</a>
+						<ul>
+							<li><a href="StateWise/gender/table.htm" target="frame">Data Table</a></li>
+							<li><a href="StateWise/gender/chart.htm" target="frame">Column Chart</a></li>
+							<li><a href="StateWise/gender/map.htm" target="frame">India Map</a></li>
+						</ul>
+					</li>
+					<li><a href="#">Debates</a>
+						<ul>
+							<li><a href="StateWise/debates/table.htm" target="frame">Data Table</a></li>
+							<li><a href="StateWise/debates/chart.htm" target="frame">Column Chart</a></li>
+							<li><a href="StateWise/debates/map.htm" target="frame">India Map</a></li>
+						</ul>
+					</li>
+					<li><a href="#">Questions</a>
+						<ul>
+							<li><a href="StateWise/questions/table.htm" target="frame">Data Table</a></li>
+							<li><a href="StateWise/questions/chart.htm" target="frame">Column Chart</a></li>
+							<li><a href="StateWise/questions/map.htm" target="frame">India Map</a></li>
+						</ul>
+					</li>
+					<li><a href="#">Alliances</a>
+						<ul>
+							<li><a href="StateWise/alliance/table.htm" target="frame">Data Table</a></li>
+							<li><a href="StateWise/alliance/chart.htm" target="frame">Column Chart</a></li>
+							<li><a href="StateWise/alliance/map.htm" target="frame">India Map</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		
+			<p>&nbsp;</p>
+			<p>&nbsp;</p>
+			<p>&nbsp;</p>
+			<p>&nbsp;</p>
+					
+			<iframe name= "frame" src="StateWise/age/table.htm" width="890px" height= "600px" frameborder="0"></iframe>
+			<p>&nbsp;</p>
+			<p>&nbsp;</p>
+			<hr size="10" color = "#336600">
+			<p>&nbsp;</p>
+			<h3>**Education Quotient:</h3>
+			In order to visualise and compare education of MPs mathematically, we have given the following weights to different education qualifications:<br>
+			Doctorate: 90, Post Graduate: 75, Graduate: 60, Diploma Course: 45, Under Graduates: 20, Under Matric: 10.
+			<p>&nbsp;</p>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,412 @@
+<html>
+<head>
+	<title>Hypothesis</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+	<script>
+		function slideonlyone(thechosenone) {
+			$('.content').each(function(index) {
+				if ($(this).attr("id") == thechosenone) {
+					$(this).slideToggle(600);
+				}else {
+				   $(this).slideUp(600);
+				}
+			});
+		}
+	</script>
+</head>
+<body>	
+	<ul>
+		<li>
+			<h3 style="color : #336600" onclick="javascript:slideonlyone('box1');">Hypothesis 1: More experienced MPs maintain better attendance.</h3>
+			<div class="content" id="box1">
+			<img src="images/1-age_attendance.png"/><br>
+			Consider two sample sets: <br>
+			Sample-1 : Attendance of MPs with age less than the average age <br>
+			Sample-2 : Attendance of MPs with age more than the average age <br>
+			Null Hypothesis, H<sub>0</sub> : &mu;<sub>1</sub> = &mu;<sub>2</sub> <br>
+			Alternate Hypothesis, H<sub>A</sub> : &mu;<sub>1</sub> > &mu;<sub>2</sub> <br> <br>
+			<u><b>AFTER WELCH T-TEST</u></b> <br>
+			T-value, t = -3.1814299415896183 <br>
+			Degree of Freedom, df = 487 <br>
+			Using T-table (&alpha;(1 tail) = 0.05), since |t| > t<sub>critical</sub>, therefore, H<sub>0</sub> can be rejected with 95% confidence level. <br>
+			Also, since t is negative, therefore, H<sub>A</sub> is also rejected. <br><br>
+			<b>Thus, Hypothesis-1 can be accepted with 95% confidence level.</b>
+			<p>&nbsp;</p>
+			<hr size="5" color = "#336600">
+			<p>&nbsp;</p>
+			</div>
+		</li>
+        <p>&nbsp;</p>
+		<hr>
+		<p>&nbsp;</p>
+		
+		<li>
+			<h3 style="color : #336600" onclick="javascript:slideonlyone('box2');">Hypothesis 2: MPs from small states maintain better attendance.</h3>
+			<div class="content" id="box2">
+			<img src="images/2-state_attendance.png"/><br>
+			Consider two sample sets: <br>
+			Sample-1 : Attendance of MPs from large states, i.e., with number of MPs greater than 20 <br>
+			Sample-2 : Attendance of MPs from small states <br>
+			Null Hypothesis, H<sub>0</sub> : &mu;<sub>1</sub> = &mu;<sub>2</sub> <br>
+			Alternate Hypothesis, H<sub>A</sub> : &mu;<sub>1</sub> > &mu;<sub>2</sub> <br> <br>
+			<u><b>AFTER WELCH T-TEST</u></b> <br>
+			T-value, t = -0.025563012603867976 <br>
+			Degree of Freedom, df = 211 <br>
+			Using T-table (&alpha;(1 tail) = 0.05), since |t| < t<sub>critical</sub>, therefore, H<sub>0</sub> cannot be rejected. <br>
+			<br>
+			<b>Thus, Hypothesis-2 cannot be accepted.</b>			
+			<p>&nbsp;</p>
+			<hr size="5" color = "#336600">
+			<p>&nbsp;</p>
+			</div>
+		</li>
+        <p>&nbsp;</p>
+		<hr>
+		<p>&nbsp;</p>
+		
+		<li>
+			<h3 style="color : #336600" onclick="javascript:slideonlyone('box3');">Hypothesis 3: MPs from UPA(in power) or NDA(opposition) maintain better attendance.</h3>
+			<div class="content" id="box3">
+			<img src="images/3-alliance_attendance.png"/><br>
+			Consider two sample sets: <br>
+			Sample-1 : Attendance of MPs from alliances other than UPA or NDA <br>
+			Sample-2 : Attendance of MPs from UPA or NDA <br>
+			Null Hypothesis, H<sub>0</sub> : &mu;<sub>1</sub> = &mu;<sub>2</sub> <br>
+			Alternate Hypothesis, H<sub>A</sub> : &mu;<sub>1</sub> > &mu;<sub>2</sub> <br> <br>
+			<u><b>AFTER WELCH T-TEST</u></b> <br>
+			T-value, t = -1.7948203853123752 <br>
+			Degree of Freedom, df = 98 <br>
+			Using T-table (&alpha;(1 tail) = 0.05), since |t| > t<sub>critical</sub>, therefore, H<sub>0</sub> can be rejected with 95% confidence level. <br>
+			Also, since t is negative, therefore, H<sub>A</sub> is also rejected. <br><br>
+			<b>Thus, Hypothesis-3 can be accepted with 95% confidence level.</b>
+			<p>&nbsp;</p>
+			<hr size="5" color = "#336600">
+			<p>&nbsp;</p>
+			</div>
+		</li>
+        <p>&nbsp;</p>
+		<hr>
+		<p>&nbsp;</p>
+		
+		<li>
+			<h3 style="color : #336600" onclick="javascript:slideonlyone('box4');">Hypothesis 4: MPs from North India maintain better attendance than MPs from South India.</h3>
+			<div class="content" id="box4">
+			<img src="images/4-region_attendance.png"/><br>
+			Consider two sample sets: <br>
+			Sample-1 : Attendance of MPs from South India <br>
+			Sample-2 : Attendance of MPs from North India <br>
+			Null Hypothesis, H<sub>0</sub> : &mu;<sub>1</sub> = &mu;<sub>2</sub> <br>
+			Alternate Hypothesis, H<sub>A</sub> : &mu;<sub>1</sub> > &mu;<sub>2</sub> <br> <br>
+			<u><b>AFTER WELCH T-TEST</u></b> <br>
+			T-value, t = -3.862235634397904 <br>
+			Degree of Freedom, df = 230 <br>
+			Using T-table (&alpha;(1 tail) = 0.05), since |t| > t<sub>critical</sub>, therefore, H<sub>0</sub> can be rejected with 95% confidence level. <br>
+			Also, since t is negative, therefore, H<sub>A</sub> is also rejected. <br><br>
+			<b>Thus, Hypothesis-4 can be accepted with 95% confidence level.</b>
+			<p>&nbsp;</p>
+			<hr size="5" color = "#336600">
+			<p>&nbsp;</p>
+			</div>
+		</li>
+        <p>&nbsp;</p>
+		<hr>
+		<p>&nbsp;</p>
+		
+		<li>
+			<h3 style="color : #336600" onclick="javascript:slideonlyone('box5');">Hypothesis 5: More educated MPs maintain better attendance.</h3>
+			<div class="content" id="box5">
+			<img src="images/5-education_attendance.png"/><br>
+			Consider two sample sets: <br>
+			Sample-1 : Attendance of less educated MPs <br>
+			Sample-2 : Attendance of more educated MPs <br>
+			Null Hypothesis, H<sub>0</sub> : &mu;<sub>1</sub> = &mu;<sub>2</sub> <br>
+			Alternate Hypothesis, H<sub>A</sub> : &mu;<sub>1</sub> > &mu;<sub>2</sub> <br> <br>
+			<u><b>AFTER WELCH T-TEST</u></b> <br>
+			T-value, t = -1.9812357265969112 <br>
+			Degree of Freedom, df = 172 <br>
+			Using T-table (&alpha;(1 tail) = 0.05), since |t| > t<sub>critical</sub>, therefore, H<sub>0</sub> can be rejected with 95% confidence level. <br>
+			Also, since t is negative, therefore, H<sub>A</sub> is also rejected. <br><br>
+			<b>Thus, Hypothesis-5 can be accepted with 95% confidence level.</b>
+			<p>&nbsp;</p>
+			<hr size="5" color = "#336600">
+			<p>&nbsp;</p>
+			</div>
+		</li>
+        <p>&nbsp;</p>
+		<hr>
+		<p>&nbsp;</p>
+		
+		<li>
+			<h3 style="color : #336600" onclick="javascript:slideonlyone('box6');">Hypothesis 6: Female MPs maintain better attendance.</h3>
+			<div class="content" id="box6">
+			<img src="images/6-gender_attendance.png"/><br>
+			Consider two sample sets: <br>
+			Sample-1 : Attendance of male MPs <br>
+			Sample-2 : Attendance of female MPs <br>
+			Null Hypothesis, H<sub>0</sub> : &mu;<sub>1</sub> = &mu;<sub>2</sub> <br>
+			Alternate Hypothesis, H<sub>A</sub> : &mu;<sub>1</sub> > &mu;<sub>2</sub> <br> <br>
+			<u><b>AFTER WELCH T-TEST</u></b> <br>
+			T-value, t = -0.5837488550262022 <br>
+			Degree of Freedom, df = 67 <br>
+			Using T-table (&alpha;(1 tail) = 0.05), since |t| < t<sub>critical</sub>, therefore, H<sub>0</sub> cannot be rejected. <br>
+			<br>
+			<b>Thus, Hypothesis-6 cannot be accepted.</b>
+			<p>&nbsp;</p>
+			<hr size="5" color = "#336600">
+			<p>&nbsp;</p>
+			</div>
+		</li>
+        <p>&nbsp;</p>
+		<hr>
+		<p>&nbsp;</p>
+		
+		<li>
+			<h3 style="color : #336600" onclick="javascript:slideonlyone('box7');">Hypothesis 7: MPs with greater number of debates maintain better attendance.</h3>
+			<div class="content" id="box7">
+			<img src="images/7-debate_attendance.png"/><br>
+			Consider two sample sets: <br>
+			Sample-1 : Attendance of MPs with debates less than the average number of debates <br>
+			Sample-2 : Attendance of MPs with debates more than the average number of debates <br>
+			Null Hypothesis, H<sub>0</sub> : &mu;<sub>1</sub> = &mu;<sub>2</sub> <br>
+			Alternate Hypothesis, H<sub>A</sub> : &mu;<sub>1</sub> > &mu;<sub>2</sub> <br> <br>
+			<u><b>AFTER WELCH T-TEST</u></b> <br>
+			T-value, t = -10.720810077053816 <br>
+			Degree of Freedom, df = 490 <br>
+			Using T-table (&alpha;(1 tail) = 0.05), since |t| > t<sub>critical</sub>, therefore, H<sub>0</sub> can be rejected with 95% confidence level. <br>
+			Also, since t is negative, therefore, H<sub>A</sub> is also rejected. <br><br>
+			<b>Thus, Hypothesis-7 can be accepted with 95% confidence level.</b>			
+			<p>&nbsp;</p>
+			<hr size="5" color = "#336600">
+			<p>&nbsp;</p>
+			</div>
+		</li>
+        <p>&nbsp;</p>
+		<hr>
+		<p>&nbsp;</p>
+		
+		<li>
+			<h3 style="color : #336600" onclick="javascript:slideonlyone('box8');">Hypothesis 8: MPs with greater number of questions maintain better attendance.</h3>
+			<div class="content" id="box8">
+			<img src="images/8-questions_attendance.png"/><br>
+			Consider two sample sets: <br>
+			Sample-1 : Attendance of MPs with questions less than the average number of questions <br>
+			Sample-2 : Attendance of MPs with questions more than the average number of questions <br>
+			Null Hypothesis, H<sub>0</sub> : &mu;<sub>1</sub> = &mu;<sub>2</sub> <br>
+			Alternate Hypothesis, H<sub>A</sub> : &mu;<sub>1</sub> > &mu;<sub>2</sub> <br> <br>
+			<u><b>AFTER WELCH T-TEST</u></b> <br>
+			T-value, t = -3.7747072708036096 <br>
+			Degree of Freedom, df = 475 <br>
+			Using T-table (&alpha;(1 tail) = 0.05), since |t| > t<sub>critical</sub>, therefore, H<sub>0</sub> can be rejected with 95% confidence level. <br>
+			Also, since t is negative, therefore, H<sub>A</sub> is also rejected. <br><br>
+			<b>Thus, Hypothesis-8 can be accepted with 95% confidence level.</b>
+			<p>&nbsp;</p>
+			<hr size="5" color = "#336600">
+			<p>&nbsp;</p>
+			</div>
+		</li>
+        <p>&nbsp;</p>
+		<hr>
+		<p>&nbsp;</p>
+		
+		<li>
+			<h3 style="color : #336600" onclick="javascript:slideonlyone('box9');">Hypothesis 9: Female MPs are better educated than male MPs.</h3>
+			<div class="content" id="box9">
+			<img src="images/9-gender_education.png"/><br>
+			Consider two sample sets: <br>
+			Sample-1 : Education of male MPs <br>
+			Sample-2 : Education of female MPs <br>
+			Null Hypothesis, H<sub>0</sub> : &mu;<sub>1</sub> = &mu;<sub>2</sub> <br>
+			Alternate Hypothesis, H<sub>A</sub> : &mu;<sub>1</sub> > &mu;<sub>2</sub> <br> <br>
+			<u><b>AFTER WELCH T-TEST</u></b> <br>
+			T-value, t = 0.26172874338878926 <br>
+			Degree of Freedom, df = 64 <br>
+			Using T-table (&alpha;(1 tail) = 0.05), since |t| < t<sub>critical</sub>, therefore, H<sub>0</sub> cannot be rejected. <br>
+			<br>
+			<b>Thus, Hypothesis-9 cannot be accepted.</b>
+			<p>&nbsp;</p>
+			<hr size="5" color = "#336600">
+			<p>&nbsp;</p>
+			</div>
+		</li>
+        <p>&nbsp;</p>
+		<hr>
+		<p>&nbsp;</p>
+		
+		<li>
+			<h3 style="color : #336600" onclick="javascript:slideonlyone('box10');">Hypothesis 10: MPs from small states are better aducated.</h3>
+			<div class="content" id="box10">
+			<img src="images/10-state_education.png"/><br>
+			Consider two sample sets: <br>
+			Sample-1 : Education of MPs from large states, i.e., with number of MPs greater than 20 <br>
+			Sample-2 : Education of MPs from small states <br>
+			Null Hypothesis, H<sub>0</sub> : &mu;<sub>1</sub> = &mu;<sub>2</sub> <br>
+			Alternate Hypothesis, H<sub>A</sub> : &mu;<sub>1</sub> > &mu;<sub>2</sub> <br> <br>
+			<u><b>AFTER WELCH T-TEST</u></b> <br>
+			T-value, t = -1.293594585666722 <br>
+			Degree of Freedom, df = 235 <br>
+			Using T-table (&alpha;(1 tail) = 0.05), since |t| < t<sub>critical</sub>, therefore, H<sub>0</sub> cannot be rejected. <br>
+			<br>
+			<b>Thus, Hypothesis-10 cannot be accepted.</b>
+			<p>&nbsp;</p>
+			<hr size="5" color = "#336600">
+			<p>&nbsp;</p>
+			</div>
+		</li>
+        <p>&nbsp;</p>
+		<hr>
+		<p>&nbsp;</p>
+		
+		<li>
+			<h3 style="color : #336600" onclick="javascript:slideonlyone('box11');">Hypothesis 11: MPs from UPA(in power) or NDA(opposition) are better educated.</h3>
+			<div class="content" id="box11">
+			<img src="images/11-alliance_education.png"/><br>
+			Consider two sample sets: <br>
+			Sample-1 : Education of MPs from alliances other than UPA or NDA <br>
+			Sample-2 : Education of MPs from UPA or NDA <br>
+			Null Hypothesis, H<sub>0</sub> : &mu;<sub>1</sub> = &mu;<sub>2</sub> <br>
+			Alternate Hypothesis, H<sub>A</sub> : &mu;<sub>1</sub> > &mu;<sub>2</sub> <br> <br>
+			<u><b>AFTER WELCH T-TEST</u></b> <br>
+			T-value, t = 2.264719710973411 <br>
+			Degree of Freedom, df = 115 <br>
+			Using T-table (&alpha;(1 tail) = 0.05), since |t| > t<sub>critical</sub>, therefore, H<sub>0</sub> can be rejected with 95% confidence level. <br>
+			But, since t is posistive, therefore, H<sub>A</sub> cannot be rejected. <br><br>
+			<b>Thus, Hypothesis-11 cannot be accepted.</b>
+			<p>&nbsp;</p>
+			<hr size="5" color = "#336600">
+			<p>&nbsp;</p>
+			</div>
+		</li>
+        <p>&nbsp;</p>
+		<hr>
+		<p>&nbsp;</p>
+		
+		<li>
+			<h3 style="color : #336600" onclick="javascript:slideonlyone('box12');">Hypothesis 12: MPs with greater number of questions are better educated.</h3>
+			<div class="content" id="box12">
+			<img src="images/12-questions_education.png"/><br>
+			Consider two sample sets: <br>
+			Sample-1 : Education of MPs with questions less than the average number of questions <br>
+			Sample-2 : Education of MPs with questions more than the average number of questions <br>
+			Null Hypothesis, H<sub>0</sub> : &mu;<sub>1</sub> = &mu;<sub>2</sub> <br>
+			Alternate Hypothesis, H<sub>A</sub> : &mu;<sub>1</sub> > &mu;<sub>2</sub> <br> <br>
+			<u><b>AFTER WELCH T-TEST</u></b> <br>
+			T-value, t = -4.807716498159002 <br>
+			Degree of Freedom, df = 388 <br>
+			Using T-table (&alpha;(1 tail) = 0.05), since |t| > t<sub>critical</sub>, therefore, H<sub>0</sub> can be rejected with 95% confidence level. <br>
+			Also, since t is negative, therefore, H<sub>A</sub> is also rejected. <br><br>
+			<b>Thus, Hypothesis-12 can be accepted with 95% confidence level.</b>
+			<p>&nbsp;</p>
+			<hr size="5" color = "#336600">
+			<p>&nbsp;</p>
+			</div>
+		</li>
+        <p>&nbsp;</p>
+		<hr>
+		<p>&nbsp;</p>
+		
+		<li>
+			<h3 style="color : #336600" onclick="javascript:slideonlyone('box13');">Hypothesis 13: MPs with greater number of debates are better educated.</h3>
+			<div class="content" id="box13">
+			<img src="images/13-debate_education.png"/><br>
+			Consider two sample sets: <br>
+			Sample-1 : Education of MPs with debates less than the average number of debates <br>
+			Sample-2 : Education of MPs with debates more than the average number of debates <br>
+			Null Hypothesis, H<sub>0</sub> : &mu;<sub>1</sub> = &mu;<sub>2</sub> <br>
+			Alternate Hypothesis, H<sub>A</sub> : &mu;<sub>1</sub> > &mu;<sub>2</sub> <br> <br>
+			<u><b>AFTER WELCH T-TEST</u></b> <br>
+			T-value, t = -1.2843810098925774 <br>
+			Degree of Freedom, df = 470 <br>
+			Using T-table (&alpha;(1 tail) = 0.05), since |t| < t<sub>critical</sub>, therefore, H<sub>0</sub> cannot be rejected. <br>
+			<br>
+			<b>Thus, Hypothesis-13 cannot be accepted.</b>
+			<p>&nbsp;</p>
+			<hr size="5" color = "#336600">
+			<p>&nbsp;</p>
+			</div>
+		</li>
+        <p>&nbsp;</p>
+		<hr>
+		<p>&nbsp;</p>
+		
+		<li>
+			<h3 style="color : #336600" onclick="javascript:slideonlyone('box14');">Hypothesis 14: MPs from small states participate more in debates.</h3>
+			<div class="content" id="box14">
+			<img src="images/14-state_debate.png"/><br>
+			Consider two sample sets: <br>
+			Sample-1 : Number of debates of MPs from large states, i.e., with number of MPs greater than 20 <br>
+			Sample-2 : Number of debates of MPs from small states <br>
+			Null Hypothesis, H<sub>0</sub> : &mu;<sub>1</sub> = &mu;<sub>2</sub> <br>
+			Alternate Hypothesis, H<sub>A</sub> : &mu;<sub>1</sub> > &mu;<sub>2</sub> <br> <br>
+			<u><b>AFTER WELCH T-TEST</u></b> <br>
+			T-value, t = 3.154825210155718 <br>
+			Degree of Freedom, df = 264 <br>
+			Using T-table (&alpha;(1 tail) = 0.05), since |t| > t<sub>critical</sub>, therefore, H<sub>0</sub> can be rejected with 95% confidence level. <br>
+			But, since t is positive, therefore, H<sub>A</sub> cannot be rejected. <br><br>
+			<b>Thus, Hypothesis-14 cannot be accepted.</b>
+			<p>&nbsp;</p>
+			<hr size="5" color = "#336600">
+			<p>&nbsp;</p>
+			</div>
+		</li>
+        <p>&nbsp;</p>
+		<hr>
+		<p>&nbsp;</p>
+		
+		<li>
+			<h3 style="color : #336600" onclick="javascript:slideonlyone('box15');">Hypothesis 15: MPs from UPA/NDA participate more in debates.</h3>
+			<div class="content" id="box15">
+			<img src="images/15-alliance_debate.png"/><br>
+			Consider two sample sets: <br>
+			Sample-1 : Number of debates of MPs from alliances other than UPA or NDA <br>
+			Sample-2 : Number of debates of MPs from UPA or NDA <br>
+			Null Hypothesis, H<sub>0</sub> : &mu;<sub>1</sub> = &mu;<sub>2</sub> <br>
+			Alternate Hypothesis, H<sub>A</sub> : &mu;<sub>1</sub> > &mu;<sub>2</sub> <br> <br>
+			<u><b>AFTER WELCH T-TEST</u></b> <br>
+			T-value, t = 0.0975442247030194 <br>
+			Degree of Freedom, df = 102 <br>
+			Using T-table (&alpha;(1 tail) = 0.05), since |t| < t<sub>critical</sub>, therefore, H<sub>0</sub> cannot be rejected. <br>
+			<br>
+			<b>Thus, Hypothesis-15 cannot be accepted.</b>
+			<p>&nbsp;</p>
+			<hr size="5" color = "#336600">
+			<p>&nbsp;</p>
+			</div>
+		</li>
+        <p>&nbsp;</p>
+		<hr>
+		<p>&nbsp;</p>
+		
+		<li>
+			<h3 style="color : #336600" onclick="javascript:slideonlyone('box16');">Hypothesis 16: MPs with greater number of questions participate more in debates.</h3>
+			<div class="content" id="box16">
+			<img src="images/16-questions_debate.png"/><br>
+			Consider two sample sets: <br>
+			Sample-1 : Number of debates of MPs with questions less than the average number of questions <br>
+			Sample-2 : Number of debates of MPs with questions more than the average number of questions <br>
+			Null Hypothesis, H<sub>0</sub> : &mu;<sub>1</sub> = &mu;<sub>2</sub> <br>
+			Alternate Hypothesis, H<sub>A</sub> : &mu;<sub>1</sub> > &mu;<sub>2</sub> <br> <br>
+			<u><b>AFTER WELCH T-TEST</u></b> <br>
+			T-value, t = -5.726582316694883 <br>
+			Degree of Freedom, df = 332 <br>
+			Using T-table (&alpha;(1 tail) = 0.05), since |t| > t<sub>critical</sub>, therefore, H<sub>0</sub> can be rejected with 95% confidence level. <br>
+			Also, since t is negative, therefore, H<sub>A</sub> is also rejected. <br><br>
+			<b>Thus, Hypothesis-16 can be accepted with 95% confidence level.</b>
+			<p>&nbsp;</p>
+			<hr size="5" color = "#336600">
+			<p>&nbsp;</p>
+			</div>
+		</li>
+        <p>&nbsp;</p>
+		<hr>
+		<p>&nbsp;</p>
+		
+	</ul>
+</body>
+</html>
+
+
+    
+    
+    
+

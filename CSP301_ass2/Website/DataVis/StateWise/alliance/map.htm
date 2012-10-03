@@ -1,0 +1,72 @@
+<html>
+<head>
+	<script type='text/javascript' src='https://www.google.com/jsapi'></script>
+	<script type='text/javascript'>
+	google.load('visualization', '1', {'packages': ['geomap']});
+	google.load('visualization', '1', {packages:['table']});
+	google.setOnLoadCallback(drawMap);
+    function drawMap() {
+		var query = new google.visualization.Query(
+                'https://docs.google.com/spreadsheet/tq?range=1%3A100&key=0AmaVcAF6zqoedHhIbmlRVnA0a19vZVEzVy1yazJOQXc&gid=0&headers=-1');
+		query.setQuery('SELECT A, O / (O + P + Q + R) ');
+		// Send the query with a callback function.
+		query.send(handleQueryResponse);
+	}
+	function handleQueryResponse(response) {
+		if (response.isError()) {
+  			alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+   			return;
+		}
+		var data = response.getDataTable();
+		data.setColumnLabel(1, 'Percentage ratio of UPA');
+		var options = {};
+		options['width'] = '850px';
+		options['height'] = '500px';
+		options['region'] = 'IN';
+		options['colors'] = [0xFF8747, 0xFFB581, 0xc06000]; //orange colors
+		options['dataMode'] = 'regions';
+		options['title'] = '';
+
+		var container = document.getElementById('map_canvas_1');
+		var geomap = new google.visualization.GeoMap(container);
+		geomap.draw(data, options);
+    };
+	
+	google.setOnLoadCallback(drawMap2);
+	function drawMap2() {
+		var query = new google.visualization.Query(
+                'https://docs.google.com/spreadsheet/tq?range=1%3A100&key=0AmaVcAF6zqoedHhIbmlRVnA0a19vZVEzVy1yazJOQXc&gid=0&headers=-1');
+		query.setQuery('SELECT A, P / (O + P + Q + R) ');
+		// Send the query with a callback function.
+		query.send(handleQueryResponse2);
+	}
+	function handleQueryResponse2(response) {
+		if (response.isError()) {
+  			alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+   			return;
+		}
+		var data = response.getDataTable();
+		data.setColumnLabel(1, 'Percentage ratio of NDA');
+		var options = {};
+		options['width'] = '850px';
+		options['height'] = '500px';
+		options['region'] = 'IN';
+		//options['colors'] = [0xFF8747, 0xFFB581, 0xc06000]; //orange colors
+		options['dataMode'] = 'regions';
+		options['title'] = '';
+
+		var container = document.getElementById('map_canvas_2');
+		var geomap = new google.visualization.GeoMap(container);
+		geomap.draw(data, options);
+    };
+
+	</script>
+</head>
+
+<body>
+	<h1 align="center">Ratio of UPA in different States</h1>
+	<div id='map_canvas_1'></div>
+	<h1 align="center">Ratio of NDA in different States</h1>
+	<div id='map_canvas_2'></div>
+</body>	
+</html>

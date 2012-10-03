@@ -1,0 +1,57 @@
+<html>
+<head>
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+		google.load('visualization', '1.1', {packages: ['controls']});
+		google.setOnLoadCallback(drawVisualization);
+		function drawVisualization() {
+			// Prepare the data
+			var    query = new google.visualization.Query(
+                'https://docs.google.com/spreadsheet/tq?range=1%3A100&key=0AmaVcAF6zqoedHhIbmlRVnA0a19vZVEzVy1yazJOQXc&gid=0&headers=-1');
+			query.setQuery('SELECT A,B,C,D,E,F ');
+			// Send the query with a callback function.
+			query.send(handleQueryResponse);
+		}
+        function handleQueryResponse(response) {
+            if (response.isError()) {
+                alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+                return;
+			}
+            var data = response.getDataTable();
+			var categoryPicker = new google.visualization.ControlWrapper({
+			  'controlType': 'CategoryFilter',
+			  'containerId': 'control1',
+			  'options': {
+				'filterColumnLabel': 'State',
+				'ui': {
+				'labelStacking': 'horizontal',
+				  'allowTyping': false,
+				  'allowMultiple': true,
+				  'caption': 'Choose a state...'
+				}
+			  }
+			});
+			var chart = new google.visualization.ChartWrapper({
+			  'chartType': 'ColumnChart',
+			  'containerId': 'chart1',
+			  'options': {
+				'width': 800,
+				'height': 500,
+				}
+			  
+			});
+			 // Create a dashboard
+			 // Draw the entire dashboard.
+			new google.visualization.Dashboard(document.getElementById('dashboard')).bind(categoryPicker, chart).draw(data);
+        }
+	</script>
+</head>
+
+<body>
+	<h1 align="center">Age distribution of MPs in different States</h1>
+    <div id="dashboard">
+		<div id="control1"></div>
+		<div id="chart1"></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,4 @@
+* { margin: 0; padding: 0; }
+body { font: 15px Arial, Helvetica, sans-serif; }
+.content{font-family:Cursive;font-size: 15px;margin-left: 10px;display: none;}
+h3{cursor:pointer;}

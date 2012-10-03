@@ -1,0 +1,86 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../style.css" />
+<title>15th Indian Lok Sabha</title>
+
+	<script>
+	sfHover = function() {
+	   var sfEls = document.getElementById("navbar").getElementsByTagName("li");
+	   for (var i=0; i<sfEls.length; i++) {
+		  sfEls[i].onmouseover=function() {
+			 this.className+=" hover";
+		  }
+		  sfEls[i].onmouseout=function() {
+			 this.className=this.className.replace(new RegExp(" hover\\b"), "");
+		  }
+	   }
+	}
+	if (window.attachEvent) window.attachEvent("onload", sfHover);
+	</script>
+</head>
+
+<body>
+	<div id="container">
+		<div id="mainpic">
+        	<h1>Fifteenth<span class="off">Indian Lok Sabha</span></h1>
+            <h2>Detailed analysis of Interesting data</h2>
+        </div>   
+        
+        <div id="menu">
+        	<ul>
+            	<li class="menuitem"><a href="nationWise.htm">NationWide Data</a></li>
+                <li class="menuitem"><a href="stateWise.htm">StateWise Data</a></li>
+                <li class="menuitem"><a href="partyWise.htm">PartyWise Data</a></li>
+				<li class="menuitem"><a href="mashUps.htm">MashUps</a></li>
+				<li class="menuitem"><a href="others.htm">Others</a></li>
+				<li2><li class="menuitem"><a href="../index.htm">Home</a></li></li2>
+            </ul>
+        </div>
+        
+		<div id="content">
+
+			<p>&nbsp;</p>
+			<h1 style="color : #336600">Comparison with "14th Lok Sabha" and "Rajya Sabha"</h1>
+        	<hr size="10" color = "#336600">
+			<p>&nbsp;</p>
+			<div id="wrap">
+				<ul id="navbar">
+					<li><a href="others/composition.htm" target="frame">Composition</a></li>
+					<li><a href="others/attendance.htm" target="frame">Attendance</a></li>
+					<li><a href="others/debates.htm" target="frame">Debates</a>
+					<li><a href="others/questions.htm" target="frame">Questions</a></li>
+				</ul>
+			</div>
+			<p>&nbsp;</p>
+			<iframe name= "frame" src="others/composition.htm" width="890px" height= "750px" frameborder="0"></iframe>
+			<p>&nbsp;</p>
+			<p>&nbsp;</p>
+			<hr size="10" color = "#336600">
+			<p>&nbsp;</p>
+			<p>&nbsp;</p>
+			
+			<h1 style="color : #336600">Ruling Ratio</h1>
+			<h3 style="color : #336600">Fraction of seats occupied by leading political party in that state</h3>
+        	<hr size="10" color = "#336600">
+			<p>&nbsp;</p>
+			<iframe name= "frame2" src="others/rulingRatio.htm" width="890px" height= "520px" frameborder="0"></iframe>
+			<p>&nbsp;</p>
+			<p>&nbsp;</p>
+			<hr size="10" color = "#336600">
+			<p>&nbsp;</p>
+			<p>&nbsp;</p>
+			
+			<h1 style="color : #336600">Gender Composition in Government Bodies of the World</h1>
+			<h3 style="color : #336600">Percentage Females in Law-Making Body of each Country</h3>
+        	<hr size="10" color = "#336600">
+			<p>&nbsp;</p>
+			<iframe name= "frame3" src="others/worldGender.htm" width="890px" height= "520px" frameborder="0"></iframe>
+			<p>&nbsp;</p>
+			<p>&nbsp;</p>
+			<hr size="10" color = "#336600">
+			<p>&nbsp;</p>
+			<p>&nbsp;</p>
+		</div>
+	</div>
+</body>
+</html>

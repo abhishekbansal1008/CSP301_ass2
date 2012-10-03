@@ -1,0 +1,31 @@
+<html>
+<head>
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	<script type="text/javascript">
+		
+	google.load('visualization', '1', {packages:['table']});
+	google.setOnLoadCallback(drawVis);
+	function drawVis() {
+		var	query = new google.visualization.Query(
+      	'https://docs.google.com/spreadsheet/tq?range=1%3A99&key=0AmaVcAF6zqoedGI4d2VDakt4cjVVanBTb2xoYTByNWc&gid=0&headers=-1');
+		query.setQuery('SELECT A,B,C,D,E,F,G');
+		// Send the query with a callback function.
+		query.send(handleQueryResponse);
+	}
+	function handleQueryResponse(response) {
+		if (response.isError()) {
+  			alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+   			return;
+		}
+		var data = response.getDataTable();
+		var table = new google.visualization.Table(document.getElementById('table'));
+		table.draw(data, {title : 'Attendance distribution of MPs in major Political Parties','width' : 800, showRowNumber : true});
+	}
+	</script>
+</head>
+
+<body>
+	<h1 align="center">Attendance distribution of MPs in major Political Parties</h1>
+	<div id="table"></div>
+</body>
+</html>
