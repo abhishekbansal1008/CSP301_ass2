@@ -70,6 +70,7 @@ public class Statewise {
 					count++;
 				}
 			}
+			
 			System.out.println(abc + " has " + count + " members. ");
 
 			// Gives major states (having more than 20 MPs)
