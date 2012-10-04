@@ -1,0 +1,53 @@
+<html>
+<head>
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+		google.load('visualization', '1', {packages:['table']});
+		google.load('visualization', '1.0', {'packages':['corechart']});
+	  
+		google.setOnLoadCallback(drawVisualization);
+		function drawVisualization() {
+			// Prepare the data
+			var    query = new google.visualization.Query(
+                'https://docs.google.com/spreadsheet/tq?range=1%3A100&key=0AmaVcAF6zqoedHhIbmlRVnA0a19vZVEzVy1yazJOQXc&gid=0&headers=-1');
+			query.setQuery('SELECT SUM(B),SUM(C),SUM(D),SUM(E), SUM(F)');
+			// Send the query with a callback function.
+			query.send(handleQueryResponse);
+		}
+        function handleQueryResponse(response) {
+            if (response.isError()) {
+                alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+                return;
+			}
+            var data2 = response.getDataTable();
+			var data = new google.visualization.DataTable();
+			data.addColumn('string', '');
+			data.addColumn('number', 'Below 40');
+			data.addColumn('number', '40-50');
+			data.addColumn('number', '50-60');
+			data.addColumn('number', '60-70');
+			data.addColumn('number', '70 above');
+			data.addRow(['Age',data2.getValue(0,0),data2.getValue(0,1),data2.getValue(0,2),data2.getValue(0,3),data2.getValue(0,4)]
+			);
+			var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+			chart.draw(data, {});
+			var data1 = new google.visualization.arrayToDataTable([
+			['Age','Number of MPs'],
+			['Below 40',data2.getValue(0,0)],
+			['40-50',data2.getValue(0,1)],
+			['50-60',data2.getValue(0,2)],
+			['60-70',data2.getValue(0,3)],
+			['70 above',data2.getValue(0,4)]
+			]);
+			var chart2 = new google.visualization.PieChart(document.getElementById('chart_div_2'));
+			chart2.draw(data1, {width : 850, height : 300, is3D : true});
+        }
+	</script>
+</head>
+
+<body>
+	<h1 align="center">Age distribution of MPs in Parliament</h1>
+    <div id="chart_div"></div>
+	<div id="chart_div_2"></div>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<html>
+<head>
+	<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+	<script type="text/javascript">
+	google.load('visualization', '1.1', {packages: ['controls']});
+	google.setOnLoadCallback(drawVisualization);
+	function drawVisualization() {
+		// Prepare the data
+		var    query = new google.visualization.Query(
+            'https://docs.google.com/spreadsheet/tq?range=1%3A559&key=0AmaVcAF6zqoedDFMbDkwY2ozN19rQ1MxZDg5dE1FYWc&gid=0&headers=-1');
+		query.setQuery('SELECT A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,Y');
+		// Send the query with a callback function.
+		query.send(handleQueryResponse);
+	}
+    function handleQueryResponse(response) {
+        if (response.isError()) {
+            alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+            return;
+		}
+        var data = response.getDataTable();
+    	var stringFilter_name = new google.visualization.ControlWrapper({
+                'controlType': 'StringFilter',
+                'containerId': 'control1',
+                'options': {
+					'filterColumnLabel': 'MP name',
+					'ui': {'labelStacking': 'vertical'}
+                }
+        });
+		var stringFilter_state = new google.visualization.ControlWrapper({
+                'controlType': 'StringFilter',
+                'containerId': 'control2',
+                'options': {
+					'filterColumnLabel': 'State',
+					'ui': {'labelStacking': 'vertical'}
+                }
+        });
+		var stringFilter_party = new google.visualization.ControlWrapper({
+                'controlType': 'StringFilter',
+                'containerId': 'control3',
+                'options': {
+					'filterColumnLabel': 'Political party',
+					'ui': {'labelStacking': 'vertical'}
+                }
+        });
+	  
+			var categoryPicker_gender = new google.visualization.ControlWrapper({
+				  'controlType': 'CategoryFilter',
+				  'containerId': 'control4',
+				  'options': {
+					'filterColumnLabel': 'Gender',
+					'ui': {
+					'labelStacking': 'vertical',
+					  'allowTyping': false,
+					  'allowMultiple': false
+					}
+				  }
+			});
+			var slider_age = new google.visualization.ControlWrapper({
+				'controlType': 'NumberRangeFilter',
+				'containerId': 'control5',
+				'options': {
+					'filterColumnLabel': 'Age',
+					'ui': {'labelStacking': 'vertical'}
+				}
+			});
+			
+			var table = new google.visualization.ChartWrapper({
+				'chartType': 'Table',
+				'containerId': 'chart1',
+				'options': {
+					'width' : '870px',
+					'height' : '500px',
+					showRowNumber : true
+				}
+			});
+			// Create a dashboard
+			// Draw the entire dashboard.
+			new google.visualization.Dashboard(document.getElementById('dashboard')).bind([stringFilter_name,stringFilter_state,stringFilter_party,categoryPicker_gender, slider_age],table).draw(data);
+		}
+	</script>
+ </head>
+
+ <body>
+	<h1 style="color : #336600" align="center">Search Engine</h1>
+	<hr size="5" color = "#336600">
+    <div id="dashboard">
+		<div id="control1"></div>
+		<div id="control2"></div>
+		<div id="control3"></div>
+		<div id="control4"></div>
+		<div id="control5"></div>
+		<div id="control6"></div>
+		<p>&nbsp;</p>
+		<div id="chart1"></div>
+	</div>
+  </body>
+</html>

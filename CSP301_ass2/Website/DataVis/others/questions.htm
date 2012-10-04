@@ -1,0 +1,68 @@
+<html>
+<head>
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+		google.load('visualization', '1', {packages:['table']});
+		google.load('visualization', '1.0', {'packages':['corechart']});
+	  
+		google.setOnLoadCallback(drawVisualization);
+		function drawVisualization() {
+			// Prepare the data
+			var    query = new google.visualization.Query(
+                'https://docs.google.com/spreadsheet/tq?range=1%3A100&key=0AmaVcAF6zqoedEltS1R0dlA1cE1hMW1wU0QwYWF0Vnc&gid=0&headers=-1');
+			query.setQuery('SELECT A,C,B,D LIMIT 5 OFFSET 12');
+			// Send the query with a callback function.
+			query.send(handleQueryResponse);
+		}
+        function handleQueryResponse(response) {
+            if (response.isError()) {
+                alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+                return;
+			}
+            var data = response.getDataTable();
+			
+			var dataView1 = new google.visualization.DataView(data);
+			dataView1.setColumns([0,1]);
+			var chart = new google.visualization.PieChart(document.getElementById('chart_div_1'));
+			chart.draw(dataView1, {title: '14th Lok Sabha', is3D : true});
+			
+			var dataView2 = new google.visualization.DataView(data);
+			dataView2.setColumns([0,2]);
+			var chart2 = new google.visualization.PieChart(document.getElementById('chart_div_2'));
+			chart2.draw(dataView2, {title: '15th Lok Sabha', is3D: true});
+			
+			var dataView3 = new google.visualization.DataView(data);
+			dataView3.setColumns([0,3]);
+			var chart3 = new google.visualization.PieChart(document.getElementById('chart_div_3'));
+			chart3.draw(dataView3, {title: 'Rajya Sabha', is3D: true});
+			}
+			
+			google.setOnLoadCallback(drawVisualization2);
+			function drawVisualization2() {
+				// Prepare the data
+				var    query = new google.visualization.Query(
+					'https://docs.google.com/spreadsheet/tq?range=1%3A100&key=0AmaVcAF6zqoedEltS1R0dlA1cE1hMW1wU0QwYWF0Vnc&gid=0&headers=-1');
+				query.setQuery('SELECT A,C,B,D LIMIT 1 OFFSET 17');
+				// Send the query with a callback function.
+				query.send(handleQueryResponse2);
+			}
+			function handleQueryResponse2(response) {
+				if (response.isError()) {
+					alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+					return;
+				}
+				var data = response.getDataTable();
+				var chart = new google.visualization.Table(document.getElementById('chart_div_4'));
+				chart.draw(data, {'width' : '800px'});
+			}
+	</script>
+</head>
+
+<body>
+	<h1 align="center">Questions by MPs in Different Houses</h1>
+    <div id="chart_div_1"></div>
+	<div id="chart_div_2"></div>
+	<div id="chart_div_3"></div>
+	<div id="chart_div_4"></div>
+</body>
+</html>

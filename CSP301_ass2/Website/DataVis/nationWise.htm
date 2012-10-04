@@ -1,0 +1,220 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../style.css" />
+<title>15th Indian Lok Sabha</title>
+
+<!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+		// Load the Visualization API.
+		google.load('visualization', '1.0', {'packages':['corechart']});
+		google.load('visualization', '1', {packages:['table']});
+		google.load("visualization", "1", {packages:["treemap"]});
+		google.load('visualization', '1', {'packages': ['geomap']});
+		
+		// Set a callback to run when the Google Visualization API is loaded.
+		google.setOnLoadCallback(drawChartMembers);
+		function drawChartMembers() {
+			var query = new google.visualization.Query(
+      		'https://docs.google.com/spreadsheet/tq?range=1%3A100&key=0AmaVcAF6zqoedEIwVURhb3B1WVpldHJvVnJiN1I1eXc&gid=0&headers=-1');
+			query.setQuery('SELECT A,B ');
+			// Send the query with a callback function.
+			query.send(handleQueryResponse_members);
+		}
+		function handleQueryResponse_members(response) {
+			if (response.isError()) {
+    			alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    			return;
+			}
+			var data = response.getDataTable();
+			data.sort({column: 1, desc: true}); 
+			data.addRow(['Others',129]);
+			var options = {'title':'',
+						'width':800,
+						'height':350,
+						is3D : true
+			}
+			// Instantiate and draw our chart, passing in some options.
+			var chart = new google.visualization.PieChart(document.getElementById('chart_div_members'));
+			chart.draw(data, options);
+		}
+	
+		function drawChartOthers() {
+			// Create the data table.
+			var query = new google.visualization.Query(
+      		'https://docs.google.com/spreadsheet/tq?range=1%3A100&key=0AmaVcAF6zqoedFZJUHQzYzUza0NJanJGY2VDbzgxWGc&gid=0&headers=-1');
+			query.setQuery('SELECT A,B WHERE B < 15');
+			// Send the query with a callback function.
+			query.send(handleQueryResponse_others);
+		}
+		function handleQueryResponse_others(response) {
+			if (response.isError()) {
+    			alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    			return;
+			}
+			var data = response.getDataTable();
+			data.setColumnLabel(1,'Number of MPs');
+			data.sort({column: 1, desc:true}); 
+			var table = new google.visualization.Table(document.getElementById('table_div_others'));
+			var options = {'title':'MPs in Others',
+						'width':600,
+						showRowNumber: true,
+			}
+			table.draw(data, options);
+		}
+		
+		function drawNothing(){
+			var data = new google.visualization.DataTable();
+			var options = {}
+			var table = new google.visualization.Table(document.getElementById('table_div_others'));
+			table.draw(data, options);
+		}
+	
+
+		google.setOnLoadCallback(drawTree);
+		function drawTree() {
+		var query = new google.visualization.Query(
+      		'https://docs.google.com/spreadsheet/tq?range=1%3A100&key=0AmaVcAF6zqoedFZJUHQzYzUza0NJanJGY2VDbzgxWGc&gid=0&headers=-1');
+		query.setQuery('SELECT A,C,B,D ');
+		// Send the query with a callback function.
+		query.send(handleQueryResponse_tree);
+		}
+		function handleQueryResponse_tree(response) {
+			if (response.isError()) {
+    			alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    			return;
+			}
+			var data = response.getDataTable();
+			// Create and populate the data table.
+			data.addRows([
+			['India',		    null,                0,		0],
+			['UPA',	    		'India',             0,		0],
+			['NDA',			   	'India',             0,		0],
+			['Third Front',	    'India',             0,		0],
+			['Others', 			'India',             0,		0],
+			]);
+			// Create and draw the visualization.
+			var tree = new google.visualization.TreeMap(document.getElementById('tree_map'));
+			tree.draw(data, {
+					minColor: '#ddd',
+					midColor: '#5b5',
+					maxColor: '#090',
+					headerHeight: 15,
+					fontColor: 'black',
+					width: 900,
+					height: 500,
+					showScale: true
+			});
+		}
+		
+		google.setOnLoadCallback(drawMap);
+		function drawMap() {
+			var	query = new google.visualization.Query(
+				'https://docs.google.com/spreadsheet/tq?range=1%3A100&key=0AmaVcAF6zqoedHhIbmlRVnA0a19vZVEzVy1yazJOQXc&gid=0&headers=-1');
+			query.setQuery('SELECT A,H+I ');
+			// Send the query with a callback function.
+			query.send(handleQueryResponse_map);
+		}
+		function handleQueryResponse_map(response) {
+			if (response.isError()) {
+				alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+				return;
+			}
+			var data = response.getDataTable();
+			data.setColumnLabel(1, 'Number of MPs');
+			var options = {};
+			options['width'] = '850px';
+			options['height'] = '500px';
+			options['region'] = 'IN';
+			//options['colors'] = [0xFF8747, 0xFFB581, 0xc06000]; //orange colors
+			options['dataMode'] = 'regions';
+			options['title'] = '';
+			var container = document.getElementById('india_map');
+			var geomap = new google.visualization.GeoMap(container);
+			geomap.draw(data, options);
+		}
+	</script>
+</head>
+
+<body>
+	<div id="container">
+		<div id="mainpic">
+        	<h1>Fifteenth<span class="off">Indian Lok Sabha</span></h1>
+            <h2>Detailed analysis of Interesting data</h2>
+        </div>   
+        
+        <div id="menu">
+        	<ul>
+            	<li class="menuitem"><a href="nationWise.htm">NationWide Data</a></li>
+                <li class="menuitem"><a href="stateWise.htm">StateWise Data</a></li>
+                <li class="menuitem"><a href="partyWise.htm">PartyWise Data</a></li>
+				<li class="menuitem"><a href="mashUps.htm">MashUps</a></li>
+				<li class="menuitem"><a href="others.htm">Others</a></li>
+				<li2><li class="menuitem"><a href="../index.htm">Home</a></li></li2>
+            </ul>
+        </div>
+        
+		<div id="content">
+        	<p>&nbsp;</p>
+			<h1 style="color : #336600">NationWide Data</h1>
+			<hr size="10" color = "#336600">
+			<p>&nbsp;</p>
+			<p>&nbsp;</p>
+			
+			<h2>Percentage members from various political parties</h2>
+        	<hr />
+			<!--Div that will hold the pie chart-->
+			<div id="chart_div_members"></div>
+			<p>&nbsp;</p>
+			<input id="ShowOthers" type="checkbox" name="ShowOthers" onclick="if(this.checked){drawChartOthers()}else{drawNothing()}"/> Show Details of "others"</br>
+			<p>&nbsp;</p>
+			<div id="table_div_others"></div>
+			<p>&nbsp;</p>
+			<p>&nbsp;</p>
+			
+			<h2>Tree map of Alliances</h2>
+        	<hr />
+			<p>&nbsp;</p>
+			<div id="tree_map"></div>
+			<p>&nbsp;</p>
+			**Left click on any node to see its members, and right click to move out.
+			<p>&nbsp;</p>
+			
+			<h2>MP's from various states</h2>
+        	<hr />
+			<p>&nbsp;</p>
+			<div id="india_map"></div>
+			<p>&nbsp;</p>
+			**Color density of each state is proportional to the number of MPs from that state in Lok Sabha.
+			<p>&nbsp;</p>
+			
+			<hr size="10" color = "#336600">
+			<p>&nbsp;</p>
+			<p>&nbsp;</p>
+			
+            <div id="wrap">
+				<ul id="navbar">
+					<li><a href="NationWise/age.htm" target="frame">Age of MP's</a></li>
+					<li><a href="NationWise/edu.htm" target="frame">Education</a></li>
+					<li><a href="NationWise/attendance.htm" target="frame">Attendance</a></li>
+					<li><a href="NationWise/gender.htm" target="frame">Gender</a></li>
+					<li><a href="NationWise/debates.htm" target="frame">Debates</a>
+					<li><a href="NationWise/questions.htm" target="frame">Questions</a></li>
+				</ul>
+			</div>
+			<p>&nbsp;</p>
+			<p>&nbsp;</p>
+					
+			<iframe name= "frame" src="NationWise/age.htm" width="890px" height= "600px" frameborder="0"></iframe>
+			<p>&nbsp;</p>
+			
+			<hr size="10" color = "#336600">
+			<p>&nbsp;</p>
+			<h3>**Education Quotient:</h3>
+			In order to visualise and compare education of MPs mathematically, we have given the following weights to different education qualifications:<br>
+			Doctorate: 90, Post Graduate: 75, Graduate: 60, Diploma Course: 45, Under Graduates: 20, Under Matric: 10.
+			<p>&nbsp;</p>
+        </div>
+	</div>
+</body>
+</html>

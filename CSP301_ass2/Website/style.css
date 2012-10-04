@@ -1,0 +1,183 @@
+/* A Free Design by Bryant Smith (bryantsmith.com) */
+
+
+
+body {
+	margin: 0;
+	padding: 0;
+	text-align: left;
+	font: 12px Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: #061C37;
+	background: #EEEFE4;
+	background-image:url(images/background.png);
+	background-repeat:repeat-x;
+}
+*
+{
+  margin: 0 auto 0 auto;
+ text-align:left;}
+
+/*creates a centred space on the screen*/
+#container
+{
+  display: block; 
+  height:auto;
+  position: relative; /*relative to size of screen*/
+  width: 940px;
+}
+
+/*inserting pic of parliament*/
+#mainpic
+{
+background-image:url(images/main.jpg);
+background-repeat:no-repeat;
+width:900px;
+height:354px;	
+}
+
+/*styling of heading 1 on main pic*/
+#mainpic h1
+{
+	position:absolute;
+	left:30px;/*align with respect to container*/
+	top:5px;
+	font-size:35px;/*setting font size*/
+	color:#CC9900;/*Color of fifteenth*/
+}
+
+.off
+{
+	color:#339999;/*color of Indian Lok Sabha*/	
+}
+
+#mainpic h2
+{
+	position:absolute;
+	color:#336600;/*setting color of Detailed analysis*/
+	left:30px;
+	top:40px;
+}
+
+
+/*styling the menu bar*/
+#menu
+{
+background-image:url(images/menu.png);
+background-repeat:no-repeat;
+width:940px;/*setting the size*/
+height:70px;
+float:left;/*makes the image left aligned wrt to container, thogh not making a difference here*/
+clear:both;/*clears the sides of the image, thogh not making a diffrence here*/
+}
+
+/*creating the list on menu pic*/
+#menu ul {
+	list-style: none;
+	padding: 0px;/*no space between element border and element content*/
+	margin-left:auto;/*automatically set left margin*/
+	width:900px;/*setting the width of the list box*/
+}
+
+#menu li {
+	list-style: none;
+	padding: 0px;/*no space between element border and element content*/	
+	display: inline; /*display in same line*/
+}
+
+#menu li2{
+	float:right;/*makes the image left aligned wrt to container, thogh not making a difference here*/
+
+}
+
+#menu a {
+	float: left;/*left aligned*/
+	display: block;/*create a block*/
+	width: 150px;/*setting dimensions of block*/
+	height: 40px;
+	text-align: center;/*setting of text written the block*/
+	text-decoration: none;
+	color: #ffffff;
+	font-weight: bold;
+	padding-top: 17px;/*distance from the top of the menu bar list border*/
+	font-size: 15px;
+}
+
+
+#menu a:hover{
+	color:#BEE399;/*color change on hovering*/
+}
+
+
+
+#content
+{
+width:880px;/*size of working space on white background*/
+height:auto;
+background-color:#FFF;/*white background*/
+padding-left:10px;/*left margin*/
+padding-right:10px;/*right margin*/
+padding-bottom:5px;/*bottom margin*/
+}
+
+#footer
+{
+width:inherit;
+height:auto;
+}
+
+#content p
+{
+	
+}
+
+#wrap 
+{
+			   font-size: 18px;
+			   font: Arial, Helvetica, sans-serif;
+			   width: 880px;
+			   padding: 0px;
+			   margin: 0 auto; 
+			   background-color: #336600;
+			   position: relative; }
+
+			/* These styles create the dropdown menus. */
+			#navbar {
+			   margin: 0;
+			   padding: 0;
+			   height: 22px; }
+			#navbar li {
+			   list-style: none;
+			   float: left; }
+			#navbar li a {
+			   display: block;
+			   padding: 0px;
+			   width: 125px;
+			   background-color: #336600;
+			   color: #ffffff;
+			   text-decoration: none; }
+			#navbar li ul {
+			   display: none; 
+			   width: 125px; 
+			   color: #ffffff;
+			   background-color: #00CC00;}
+			#navbar li:hover ul, #navbar li.hover ul {
+			   display: block;
+			   position: absolute;
+			   margin: 0;
+			   padding: 0; }
+			#navbar li:hover li, #navbar li.hover li {
+			   float: none; }
+			#navbar li:hover li a, #navbar li.hover li a {
+			   background-color: #00CC00;
+			   border-bottom: 1px solid #fff;
+			   color: #000; }
+			#navbar li li a:hover {
+			   background-color: #8db3ff; }
+
+
+
+html, body {
+text-align: center;
+}
+p {text-align: left;}

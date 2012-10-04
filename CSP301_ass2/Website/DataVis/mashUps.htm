@@ -1,0 +1,76 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../style.css" />
+<title>15th Indian Lok Sabha</title>
+
+	<script>
+	sfHover = function() {
+	   var sfEls = document.getElementById("navbar").getElementsByTagName("li");
+	   for (var i=0; i<sfEls.length; i++) {
+		  sfEls[i].onmouseover=function() {
+			 this.className+=" hover";
+		  }
+		  sfEls[i].onmouseout=function() {
+			 this.className=this.className.replace(new RegExp(" hover\\b"), "");
+		  }
+	   }
+	}
+	if (window.attachEvent) window.attachEvent("onload", sfHover);
+	</script>
+</head>
+
+<body>
+	<div id="container">
+		<div id="mainpic">
+        	<h1>Fifteenth<span class="off">Indian Lok Sabha</span></h1>
+            <h2>Detailed analysis of Interesting data</h2>
+        </div>   
+        
+        <div id="menu">
+        	<ul>
+            	<li class="menuitem"><a href="nationWise.htm">NationWide Data</a></li>
+                <li class="menuitem"><a href="stateWise.htm">StateWise Data</a></li>
+                <li class="menuitem"><a href="partyWise.htm">PartyWise Data</a></li>
+				<li class="menuitem"><a href="mashUps.htm">MashUps</a></li>
+				<li class="menuitem"><a href="others.htm">Others</a></li>
+				<li2><li class="menuitem"><a href="../index.htm">Home</a></li></li2>
+            </ul>
+        </div>
+        
+		<div id="content">
+			<p>&nbsp;</p>
+			<h1 style="color : #336600">Scatter Plots</h1>
+			<h3 style="color : #336600">Choose X and Y axis to create your own scatter plots</h3>
+        	<hr size="10" color = "#336600">
+			<p>&nbsp;</p>
+			<iframe name= "frame1" src="mashUps/scatter.htm" width="890px" height= "600px" frameborder="0"></iframe>
+			<p>&nbsp;</p>
+			<p>&nbsp;</p>
+			<hr size="10" color = "#336600">
+			<p>&nbsp;</p>
+			<p>&nbsp;</p>
+			
+			<h1 style="color : #336600">State-Party Mash-Ups</h1>
+			<h3 style="color : #336600">Choose an attribute to be shown on the MashUp</h3>
+        	<hr size="10" color = "#336600">
+			<p>&nbsp;</p>
+			<div id="wrap">
+				<ul id="navbar">
+					<li><a href="mashUps/age.htm" target="frame2">Age of MP's</a></li>
+					<li><a href="mashUps/edu.htm" target="frame2">Education</a></li>
+					<li><a href="mashUps/attendance.htm" target="frame2">Attendance</a></li>
+					<li><a href="mashUps/debates.htm" target="frame2">Debates</a>
+					<li><a href="mashUps/questions.htm" target="frame2">Questions</a></li>
+				</ul>
+			</div>
+			<p>&nbsp;</p>
+			<iframe name= "frame2" src="mashUps/age.htm" width="870px" height= "800px" frameborder="0"></iframe>
+			<p>&nbsp;</p>
+			<p>&nbsp;</p>
+			<hr size="10" color = "#336600">
+			<p>&nbsp;</p>
+			<p>&nbsp;</p>
+		</div>
+	</div>
+</body>
+</html>
